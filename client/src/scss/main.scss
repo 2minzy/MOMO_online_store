@@ -1,0 +1,11 @@
+// import order is important!
+@import 'config/variables';
+@import 'config/general';
+@import 'config/mixins';
+
+@import 'modules/container';
+@import 'modules/landing';
+@import 'modules/navbar';
+@import 'modules/products';
+@import 'modules/footer';
+@import 'modules/productDetail';

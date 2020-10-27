@@ -1,0 +1,16 @@
+.container {
+  width: 100%;
+  max-width: 1500px;
+  min-height: 80vh;
+  padding-top: 10rem;
+  margin: auto;
+  text-align: center;
+
+  @include atMobile {
+    padding: 5rem 1rem;
+  }
+
+  @include atTablets {
+    padding: 5rem 1rem;
+  }
+}

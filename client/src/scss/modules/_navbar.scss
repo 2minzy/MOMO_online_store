@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&display=swap');
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 100%;
+  position: fixed;
+
+  .nav__logo {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+  }
+
+  .nav__items {
+    display: flex;
+    align-items: center;
+    li {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @include atMobile {
+    background-color: #fff;
+    padding: 0.75rem 1rem;
+
+    .nav__logo {
+      font-size: 1.5rem;
+    }
+    .nav__items {
+      li {
+        font-size: 0.8rem;
+        padding: 0 0.5rem;
+      }
+    }
+  }
+
+  @include atTablets {
+    .nav__logo {
+      font-size: 2rem;
+    }
+    .nav__items {
+      li {
+        padding: 0 0.8rem;
+      }
+    }
+  }
+}

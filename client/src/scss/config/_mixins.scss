@@ -1,0 +1,13 @@
+// Media queries
+
+@mixin atMobile() {
+  @media only screen and (max-width: $screen-sm-max) {
+    @content;
+  }
+}
+
+@mixin atTablets() {
+  @media only screen and (min-width: $screen-sm-max + 1) and (max-width: $screen-md-max) {
+    @content;
+  }
+}

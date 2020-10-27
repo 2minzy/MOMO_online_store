@@ -1,0 +1,71 @@
+.productDeatil {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  font-weight: 500;
+
+  img {
+    width: 500px;
+  }
+
+  .description-box {
+    margin: 100px;
+    width: 400px;
+
+    .description {
+      margin: 20px 0;
+    }
+
+    .quantity {
+      margin-bottom: 10px;
+    }
+
+    .in-stock {
+      color: $success-color;
+    }
+
+    .sold-out {
+      color: $danger-color;
+    }
+
+    .btn {
+      width: 400px;
+    }
+
+    .disabled {
+      display: none;
+    }
+  }
+
+  @include atMobile {
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 320px;
+    }
+    .description-box {
+      width: 280px;
+      margin: 20px 0;
+
+      .btn {
+        width: 280px;
+      }
+    }
+  }
+
+  @include atTablets {
+    padding-top: 150px;
+    img {
+      width: 300px;
+    }
+    .description-box {
+      width: 300px;
+      margin: 20px;
+
+      .btn {
+        width: 300px;
+      }
+    }
+  }
+}
