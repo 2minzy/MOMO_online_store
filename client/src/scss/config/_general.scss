@@ -44,6 +44,15 @@ ul {
   }
 }
 
+.loading {
+  width: 300px;
+}
+
+.error {
+  color: $danger-color;
+  font-size: 1rem;
+}
+
 /* Text Styles*/
 .text-center {
   text-align: center;
