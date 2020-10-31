@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'WOOL MIX BELTED COAT',
     image: '/images/w_coat.jpg',
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '2',
     name: 'RIBBED COLLAR WOOL-ALPACA TOP',
     image: '/images/w_top.jpg',
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '3',
     name: 'CHECKED WOOL DRESS',
     image: '/images/w_dress.jpg',
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
     name: 'LONG WIDE-LEG WOOL PANTS',
     image: '/images/m_pants.jpg',
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '5',
     name: 'COTTON CORDUROY SHIRT',
     image: '/images/m_top.jpg',
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '6',
     name: 'SHORT PUFFER JACKET',
     image: '/images/m_coat.jpg',
     description:
