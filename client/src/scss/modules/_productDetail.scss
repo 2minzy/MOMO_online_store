@@ -16,10 +16,6 @@
       margin: 20px 0;
     }
 
-    .quantity {
-      margin-bottom: 10px;
-    }
-
     .in-stock {
       color: $success-color;
     }
@@ -28,8 +24,17 @@
       color: $danger-color;
     }
 
+    .quantity {
+      margin-bottom: 20px;
+
+      span {
+        margin-right: 5px;
+      }
+    }
+
     .btn {
       width: 400px;
+      height: 40px;
     }
 
     .disabled {

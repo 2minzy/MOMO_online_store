@@ -1,18 +1,5 @@
 // Products Landing page
 
-.products__title {
-  font-size: 3rem;
-  font-weight: 500;
-  margin-bottom: 2rem;
-
-  @include atMobile {
-    font-size: 1.2rem;
-  }
-  @include atTablets {
-    font-size: 2rem;
-  }
-}
-
 .rating span {
   margin: 0.1rem;
 }

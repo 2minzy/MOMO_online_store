@@ -29,7 +29,8 @@ ul {
 
 .btn {
   display: inline-block;
-  padding: 10px;
+  font-size: 0.8rem;
+  padding: 12px;
   color: $light-color;
   background-color: $dark-color;
   text-align: center;
@@ -51,6 +52,28 @@ ul {
 .error {
   color: $danger-color;
   font-size: 1rem;
+}
+
+.select {
+  width: 40px;
+  padding: 5px;
+  outline: none;
+  border-color: $primary-color;
+  cursor: pointer;
+}
+
+.page__title {
+  font-size: 1rem;
+  margin: 2rem 0;
+
+  @include atMobile {
+    font-size: 0.8rem;
+    margin: 0 0 1rem 0;
+  }
+
+  @include atTablets {
+    margin: 1rem 0;
+  }
 }
 
 /* Text Styles*/

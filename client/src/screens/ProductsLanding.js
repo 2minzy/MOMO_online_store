@@ -18,7 +18,7 @@ const ProductsLanding = () => {
 
   return (
     <div className="container">
-    <div className="products__title">Latest Products</div>
+    <div className="page__title">LATEST PRODUCTS<br />20% OFF ALL TOPS & DRESS</div>
     { loading ? <Loader /> : error ? <Message>{error}</Message> : 
       <div className="products" >
       {products.map((product)=>(
