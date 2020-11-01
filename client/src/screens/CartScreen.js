@@ -39,8 +39,9 @@ const CartScreen = ({ match, location, history }) => {
           {cartItems.map(item => (
             <div key={item.product} className="conatiner cart__container">
               <img src={item.image} alt={item.name} />
-              <div><Link to={`/product/${item.product}`}>{item.name}</Link></div>
+              <div className="cart__name"><Link to={`/shop/product/${item.product}`}>{item.name}</Link></div>
               <div>${item.price}</div>
+              <div>
               <select 
               className="select" 
               value={item.qty} 
@@ -51,16 +52,19 @@ const CartScreen = ({ match, location, history }) => {
                 <option key={x + 1} value={x + 1}>{x + 1}</option>
                 ))}
               </select>
+              </div>
+              <div>
               <button 
                 className="btn"
                 onClick={() => removeFromCartHandler(item.product)}
               >
                 REMOVE
               </button>
+              </div>
             </div>
           ))}
           <div className="conatiner cart__description">
-            <p>Order value: {cartItems.reduce((acc, item) => acc + item.qty, 0)} Items</p>
+            <p>Order quantity: {cartItems.reduce((acc, item) => acc + item.qty, 0)} Items</p>
             <p>Delivery: FREE</p>
             <p className="cart__total">TOTAL: ${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)}</p>
             <button 

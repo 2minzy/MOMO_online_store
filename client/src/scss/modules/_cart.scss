@@ -1,14 +1,23 @@
 .cart__container {
   padding: 16px;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
   border-bottom: 1px solid $primary-color;
 
+  & > * {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
   img {
-    width: 100px;
+    max-width: 100px;
     margin-bottom: 10px;
+  }
+
+  .cart__name {
+    flex-grow: 2;
   }
 
   .btn {
