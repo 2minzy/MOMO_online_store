@@ -11,9 +11,14 @@
   }
 
   &__checkout__nav {
+    font-weight: 800;
     margin: 16px 300px;
     span {
       margin-right: 2rem;
+    }
+
+    &__disabled {
+      color: $primary-color;
     }
   }
 
