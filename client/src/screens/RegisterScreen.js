@@ -4,16 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import FormContainer from '../components/FormContainer';
-import { login } from '../actions/userActions';
+import { register } from '../actions/userActions';
 
-const LoginScreen = ({ location, history }) => {
+const RegisterScreen = ({ location, history }) => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
 
-  const userLogin = useSelector(state => state.userLogin);
-  const { loading, error, userInfo } = userLogin;
+  const userRegister = useSelector(state => state.userRegister);
+  const { loading, error, userInfo } = userRegister;
 
   const redirect = location.search ? location.search.split('=')[1] : '/';
 
@@ -26,11 +29,17 @@ const LoginScreen = ({ location, history }) => {
 
   const submitHandler = e => {
     e.preventDefault();
-    dispatch(login(email, password));
+    if (password !== confirmPassword) {
+      setMessage('Passwords do not match');
+    } else {
+      dispatch(register(name, email, password));
+    }
   };
+
   return (
     <FormContainer>
-      <h1>Sign In</h1>
+      <h1>Sign Up</h1>
+      {message && <Message>{message}</Message>}
       {error && <Message>{error}</Message>}
       {loading && (
         <div className='loading'>
@@ -38,6 +47,15 @@ const LoginScreen = ({ location, history }) => {
         </div>
       )}
       <form onSubmit={submitHandler}>
+        <div className='form__content'>
+          <div>Name</div>
+          <input
+            type='name'
+            placeholder='Enter name'
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+        </div>
         <div className='form__content'>
           <div>Email Address</div>
           <input
@@ -58,17 +76,26 @@ const LoginScreen = ({ location, history }) => {
           />
         </div>
 
-        <button className='btn'>SIGN IN</button>
+        <div className='form__content'>
+          <div>Confirm Password</div>
+          <input
+            type='password'
+            placeholder='Confirm password'
+            value={confirmPassword}
+            onChange={e => setConfirmPassword(e.target.value)}
+          />
+        </div>
+        <button className='btn'>REGISTER</button>
       </form>
 
       <div>
-        New Customer?{' '}
-        <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-          REGISTER
+        Have an Account?{' '}
+        <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
+          LOGIN
         </Link>
       </div>
     </FormContainer>
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;

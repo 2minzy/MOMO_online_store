@@ -1,0 +1,69 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin-top: 3.8rem;
+  }
+
+  &__content {
+    margin: 1.6rem 0;
+  }
+
+  &__checkout__nav {
+    margin: 16px 300px;
+    span {
+      margin-right: 2rem;
+    }
+  }
+
+  &__checkout__content {
+    margin-bottom: 1rem;
+  }
+
+  input {
+    width: 500px;
+    height: 30px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid $primary-color;
+  }
+
+  &__btn {
+    margin-top: 1rem;
+  }
+
+  @include atMobile {
+    input {
+      width: 280px;
+    }
+
+    &__title {
+      margin-top: 1rem;
+    }
+
+    &__checkout__nav {
+      margin: 10px 5px;
+      span {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  @include atTablets {
+    input {
+      width: 280px;
+    }
+
+    &__title {
+      margin-top: 1rem;
+    }
+
+    &__checkout__nav {
+      margin: 40px 100px;
+      span {
+        margin-right: 1.6rem;
+      }
+    }
+  }
+}

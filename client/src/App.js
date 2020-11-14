@@ -7,6 +7,10 @@ import ProductDetail from './screens/ProductDetail';
 import ProductsLanding from './screens/ProductsLanding';
 import CartScreen from './screens/CartScreen';
 import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import ShippingScreen from './screens/ShippingScreen';
+import PaymentScreen from './screens/PaymentScreen';
 
 const App = () => {
   return (
@@ -14,7 +18,11 @@ const App = () => {
       <Header />
       <main className='landing'>
         <Route exact path='/' component={HomeScreen} />
+        <Route exact path='/shipping' component={ShippingScreen} />
+        <Route exact path='/payment' component={PaymentScreen} />
         <Route exact path='/login' component={LoginScreen} />
+        <Route exact path='/register' component={RegisterScreen} />
+        <Route exact path='/profile' component={ProfileScreen} />
         <Route exact path='/shop' component={ProductsLanding} />
         <Route exact path='/shop/product/:id' component={ProductDetail} />
         <Route exact path='/cart/:id?' component={CartScreen} />
