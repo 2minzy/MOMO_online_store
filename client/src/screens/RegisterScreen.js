@@ -39,13 +39,17 @@ const RegisterScreen = ({ location, history }) => {
   return (
     <FormContainer>
       <h1>Sign Up</h1>
-      {message && <Message>{message}</Message>}
-      {error && <Message>{error}</Message>}
-      {loading && (
-        <div className='loading'>
-          <Loader />
+      {message && (
+        <div className='error'>
+          <Message>{message}</Message>
         </div>
       )}
+      {error && (
+        <div className='error'>
+          <Message>{error}</Message>
+        </div>
+      )}
+      {loading && <Loader />}
       <form onSubmit={submitHandler}>
         <div className='form__content'>
           <div>Name</div>

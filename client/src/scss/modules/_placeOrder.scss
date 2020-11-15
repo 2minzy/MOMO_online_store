@@ -2,6 +2,10 @@
   display: flex;
   padding: 1rem;
 
+  button {
+    width: 500px;
+  }
+
   & > * {
     flex-grow: 1;
     flex-basis: 0;
@@ -16,6 +20,11 @@
   &__content {
     text-align: start;
     margin-bottom: 2rem;
+  }
+
+  &__paypal__btn {
+    max-width: 500px;
+    margin: auto;
   }
 
   &__content__container {
@@ -49,10 +58,6 @@
       margin: 2rem 0;
       color: $emphasis-color;
     }
-  }
-
-  button {
-    width: 500px;
   }
 
   @include atMobile {

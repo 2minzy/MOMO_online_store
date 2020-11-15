@@ -27,7 +27,7 @@ const Header = () => {
               <Link to='/cart'>CART</Link>
             </li>
             {userInfo ? (
-              <div className='dropdown'>
+              <li className='dropdown'>
                 <div className='dropdown__profile'>
                   {userInfo.name}
                   <i className='fa fa-caret-down'></i>
@@ -43,7 +43,7 @@ const Header = () => {
                     Logout
                   </div>
                 </div>
-              </div>
+              </li>
             ) : (
               <li>
                 <Link to='/login'>SIGN IN</Link>

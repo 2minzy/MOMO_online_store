@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Message from '../components/Message';
 import CheckoutSteps from '../components/CheckoutSteps';
+import { createOrder } from '../actions/orderActions';
 
-const PlaceOrderScreen = () => {
+const PlaceOrderScreen = ({ history }) => {
+  const dispatch = useDispatch();
+
   const cart = useSelector(state => state.cart);
 
   // Calculate prices
@@ -21,8 +24,28 @@ const PlaceOrderScreen = () => {
     Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)
   );
 
+  const orderCreate = useSelector(state => state.orderCreate);
+  const { order, success, error } = orderCreate;
+
+  useEffect(() => {
+    if (success) {
+      history.push(`/order/${order._id}`);
+    }
+    // eslint-disable-next-line
+  }, [history, success]);
+
   const placeOrderHandler = () => {
-    console.log('order clicked');
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
+      })
+    );
   };
 
   return (
@@ -46,7 +69,9 @@ const PlaceOrderScreen = () => {
           <div className='order__content'>
             <h3 className='order__title'>ORDER ITEMS</h3>
             {cart.cartItems.length === 0 ? (
-              <Message>Your cart is empty</Message>
+              <div className='error'>
+                <Message>Your cart is empty</Message>
+              </div>
             ) : (
               <div>
                 {cart.cartItems.map((item, index) => (
@@ -93,6 +118,11 @@ const PlaceOrderScreen = () => {
             </span>
             <span>${cart.totalPrice}</span>
           </div>
+          {error && (
+            <div className='error'>
+              <Message>(error)</Message>
+            </div>
+          )}
           <button
             className={`${cart.cartItems === 0 ? 'disabled' : 'btn'}`}
             onClick={placeOrderHandler}

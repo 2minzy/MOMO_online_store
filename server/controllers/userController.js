@@ -3,8 +3,8 @@ import generateToken from '../utils/generateToken.js';
 import User from '../models/userModel.js';
 
 // @description     Auth user & get token
-// @route    POST /api/users/login
-// @access    Public
+// @route           POST /api/users/login
+// @access          Public
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -58,8 +58,8 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 // @description     Get user profile
-// @route    GET /api/users/profile
-// @access    Private
+// @route           GET /api/users/profile
+// @access          Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
@@ -77,8 +77,8 @@ const getUserProfile = asyncHandler(async (req, res) => {
 });
 
 // @description     Update user profile
-// @route    POST /api/users/profile
-// @access    Private
+// @route           POST /api/users/profile
+// @access          Private
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 

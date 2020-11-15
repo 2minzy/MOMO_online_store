@@ -38,6 +38,12 @@
     margin-top: 1rem;
   }
 
+  &__table {
+    margin-top: 1.8rem;
+    display: flex;
+    justify-content: center;
+  }
+
   @include atMobile {
     input {
       width: 280px;
@@ -52,6 +58,14 @@
       span {
         margin-right: 1rem;
       }
+    }
+
+    &__table {
+      font-size: 0.2rem;
+    }
+
+    button {
+      font-size: 0.2rem;
     }
   }
 

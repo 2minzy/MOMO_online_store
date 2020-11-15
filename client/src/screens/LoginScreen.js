@@ -31,12 +31,12 @@ const LoginScreen = ({ location, history }) => {
   return (
     <FormContainer>
       <h1>Sign In</h1>
-      {error && <Message>{error}</Message>}
-      {loading && (
-        <div className='loading'>
-          <Loader />
+      {error && (
+        <div className='error'>
+          <Message>{error}</Message>
         </div>
       )}
+      {loading && <Loader />}
       <form onSubmit={submitHandler}>
         <div className='form__content'>
           <div>Email Address</div>
