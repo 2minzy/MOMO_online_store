@@ -33,12 +33,12 @@ const Header = () => {
                   <i className='fa fa-caret-down'></i>
                 </div>
                 <div className='dropdown__content'>
-                  <div className='dropdown__content__profile'>
+                  <div className='dropdown__content__item'>
                     <Link to='/profile'>Profile</Link>
                   </div>
                   <div
                     onClick={logoutHandler}
-                    className='dropdown__content__logout'
+                    className='dropdown__content__item'
                   >
                     Logout
                   </div>
@@ -47,6 +47,26 @@ const Header = () => {
             ) : (
               <li>
                 <Link to='/login'>SIGN IN</Link>
+              </li>
+            )}
+
+            {userInfo && userInfo.isAdmin && (
+              <li className='dropdown'>
+                <div className='dropdown__profile'>
+                  ADMIN
+                  <i className='fa fa-caret-down'></i>
+                </div>
+                <div className='dropdown__content'>
+                  <div className='dropdown__content__item'>
+                    <Link to='/admin/userlist'>Users</Link>
+                  </div>
+                  <div className='dropdown__content__item'>
+                    <Link to='/admin/productlist'>Products</Link>
+                  </div>
+                  <div className='dropdown__content__item'>
+                    <Link to='/admin/orderlist'>Orders</Link>
+                  </div>
+                </div>
               </li>
             )}
           </ul>

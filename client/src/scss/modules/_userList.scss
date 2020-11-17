@@ -1,0 +1,12 @@
+.user__list__title {
+  margin: 1rem 0;
+}
+
+.user__list {
+  display: flex;
+  justify-content: center;
+
+  &__edit {
+    background-color: $secondary-color;
+  }
+}
