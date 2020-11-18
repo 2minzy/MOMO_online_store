@@ -23,7 +23,7 @@ const UserListScreen = ({ history }) => {
     } else {
       history.push('/login');
     }
-  }, [dispatch, history, successDelete]);
+  }, [dispatch, history, userInfo, successDelete]);
 
   const deleteHandler = id => {
     if (window.confirm('Are you sure?')) {
@@ -42,21 +42,20 @@ const UserListScreen = ({ history }) => {
             <Message>{error}</Message>
           </div>
         ) : (
-          <table>
+          <table className='user__list__table'>
             <thead>
               <tr>
-                <th>ID</th>
+                <th>NO.</th>
                 <th>NAME</th>
                 <th>EMAIL</th>
                 <th>ADMIN</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
               {users &&
-                users.map(user => (
+                users.map((user, index) => (
                   <tr key={user._id}>
-                    <td>{user._id}</td>
+                    <td>{index + 1}</td>
                     <td>{user.name}</td>
                     <td>
                       <a href={`mailto:${user.email}`}>{user.email}</a>
@@ -74,11 +73,13 @@ const UserListScreen = ({ history }) => {
                         ></i>
                       )}
                     </td>
-                    <td>
-                      <Link to={`/user/${user._id}/edit`}></Link>
-                      <button className='btn user__list__edit'>
-                        <i className='fas fa-edit'></i>
-                      </button>
+
+                    <td className='user__list__btn'>
+                      <Link to={`/admin/user/${user._id}/edit`}>
+                        <button className='btn user__list__edit'>
+                          <i className='fas fa-edit'></i>
+                        </button>
+                      </Link>
                       <button
                         className='btn'
                         onClick={() => deleteHandler(user._id)}

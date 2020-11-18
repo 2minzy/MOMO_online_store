@@ -5,8 +5,32 @@
 .user__list {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+
+  td,
+  th {
+    padding-right: 2rem;
+  }
 
   &__edit {
     background-color: $secondary-color;
+  }
+
+  button {
+    width: 36px;
+  }
+
+  @include atMobile {
+    margin: auto;
+
+    td,
+    th {
+      padding-right: 0;
+    }
+
+    button {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

@@ -47,7 +47,9 @@
 
         &__item {
           margin-bottom: 4px;
+          cursor: pointer;
         }
+
         &__logout:hover {
           color: #666;
           cursor: pointer;
