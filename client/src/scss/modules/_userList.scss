@@ -7,6 +7,10 @@
   justify-content: center;
   flex-wrap: wrap;
 
+  &__table {
+    margin-top: 2rem;
+  }
+
   td,
   th {
     padding-right: 2rem;
@@ -22,6 +26,7 @@
 
   @include atMobile {
     margin: auto;
+    font-size: 0.6rem;
 
     td,
     th {
