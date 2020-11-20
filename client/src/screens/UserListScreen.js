@@ -33,8 +33,8 @@ const UserListScreen = ({ history }) => {
 
   return (
     <div className='container'>
-      <h3 className='user__list__title'>USERS</h3>
-      <div className='user__list'>
+      <h3 className='admin__list__title'>USERS</h3>
+      <div className='admin__list'>
         {loading ? (
           <Loader />
         ) : error ? (
@@ -42,7 +42,7 @@ const UserListScreen = ({ history }) => {
             <Message>{error}</Message>
           </div>
         ) : (
-          <table className='user__list__table'>
+          <table className='admin__list__table'>
             <thead>
               <tr>
                 <th>NO.</th>
@@ -74,9 +74,9 @@ const UserListScreen = ({ history }) => {
                       )}
                     </td>
 
-                    <td className='user__list__btn'>
+                    <td className='admin__list__btn'>
                       <Link to={`/admin/user/${user._id}/edit`}>
-                        <button className='btn user__list__edit'>
+                        <button className='btn admin__list__edit'>
                           <i className='fas fa-edit'></i>
                         </button>
                       </Link>

@@ -48,7 +48,7 @@ const UserEditScreen = ({ match, history }) => {
 
   return (
     <FormContainer>
-      <h1>Edit User</h1>
+      <h3 className='admin__list__title'>EDIT USER</h3>
       {loadingUpdate && <Loader />}
       {errorUpdate && (
         <div className='error'>

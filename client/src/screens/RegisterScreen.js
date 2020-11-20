@@ -38,7 +38,7 @@ const RegisterScreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <h1>Sign Up</h1>
+      <h2>Sign Up</h2>
       {message && (
         <div className='error'>
           <Message>{message}</Message>
