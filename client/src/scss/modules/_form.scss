@@ -16,6 +16,16 @@
 
   &__content {
     margin: 1.6rem 0;
+
+    &__upload {
+      input {
+        padding-top: 3px;
+      }
+    }
+
+    &__subtitle {
+      margin-top: 1rem;
+    }
   }
 
   &__checkout__nav {

@@ -11,7 +11,7 @@ body {
   font-size: 0.8rem;
   line-height: 1.6;
   background-color: #fff;
-  color: #333;
+  color: $dark-color;
 }
 
 a {
@@ -69,18 +69,10 @@ ul {
   cursor: pointer;
 }
 
-.page__title {
-  font-size: 1rem;
-  margin: 2rem 0;
-
-  @include atMobile {
-    font-size: 0.8rem;
-    margin: 0 0 1rem 0;
-  }
-
-  @include atTablets {
-    margin: 1rem 0;
-  }
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
 }
 
 /* Text Styles*/

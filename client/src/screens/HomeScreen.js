@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Meta from '../components/Meta';
 
 const HomeScreen = () => {
   return (
-    <div className="container">
-     Home
-    </div>
-  )
-}
+    <>
+      <Meta />
+      <div className='container'>Home</div>;
+    </>
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;

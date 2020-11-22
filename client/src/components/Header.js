@@ -19,7 +19,13 @@ const Header = () => {
           <div className='nav__logo'>
             <Link to='/'>MOMO</Link>
           </div>
+
           <ul className='nav__items'>
+            <li>
+              <Link to='/shop/search'>
+                <i className='fas fa-search'></i>
+              </Link>
+            </li>
             <li>
               <Link to='/shop'>SHOP</Link>
             </li>

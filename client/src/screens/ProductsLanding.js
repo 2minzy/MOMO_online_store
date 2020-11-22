@@ -3,40 +3,49 @@ import { useDispatch, useSelector } from 'react-redux';
 import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
+import Meta from '../components/Meta';
+import Paginate from '../components/Paginate';
 import { listProducts } from '../actions/productActions';
 
-const ProductsLanding = () => {
+const ProductsLanding = ({ match }) => {
+  const keyword = match.params.keyword;
+
+  const pageNumber = match.params.pageNumber || 1;
+
   const dispatch = useDispatch();
 
   const productList = useSelector(state => state.productList);
-
-  const { loading, error, products } = productList;
+  const { loading, error, products, page, pages } = productList;
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+    dispatch(listProducts(keyword, pageNumber));
+  }, [dispatch, keyword, pageNumber]);
 
   return (
-    <div className='container'>
-      <div className='page__title'>
-        LATEST PRODUCTS
-        <br />
-        20% OFF ALL TOPS & DRESS
+    <>
+      <Meta title='Shop | MOMO' />
+      <div className='container'>
+        <div className='page__title'>
+          LATEST PRODUCTS
+          <br />
+          20% OFF ALL TOPS & DRESS
+        </div>
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <div className='error'>
+            <Message>{error}</Message>
+          </div>
+        ) : (
+          <div className='products'>
+            {products.map(product => (
+              <Product key={product._id} product={product} />
+            ))}
+          </div>
+        )}
+        <Paginate pages={pages} page={page} keyword={keyword ? keyword : ''} />
       </div>
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <div className='error'>
-          <Message>{error}</Message>
-        </div>
-      ) : (
-        <div className='products'>
-          {products.map(product => (
-            <Product key={product._id} product={product} />
-          ))}
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 

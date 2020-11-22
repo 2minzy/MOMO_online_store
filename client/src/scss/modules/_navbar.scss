@@ -12,12 +12,53 @@
     font-size: 2rem;
   }
 
+  &__search {
+    input {
+      font-size: 1rem;
+      outline: 0;
+      border-width: 0 0 2px;
+      height: 2rem;
+      width: 800px;
+      margin-right: 1rem;
+    }
+
+    &__btn {
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+      font-size: 1.2rem;
+    }
+
+    @include atMobile {
+      input {
+        font-size: 0.8rem;
+        margin-top: 1rem;
+        width: 200px;
+      }
+
+      &__btn {
+        font-size: 0.8rem;
+      }
+    }
+
+    @include atTablets {
+      input {
+        margin-top: 2rem;
+        width: 300px;
+      }
+
+      &__btn {
+        font-size: 1rem;
+      }
+    }
+  }
+
   &__items {
     display: flex;
     align-items: center;
 
     li {
-      padding: 0 1.5rem;
+      padding: 0 1rem;
     }
 
     .dropdown {
@@ -64,7 +105,7 @@
   }
 
   @include atMobile {
-    background-color: #fff;
+    background-color: $white-color;
     padding: 0.75rem 2rem;
 
     .nav__logo {

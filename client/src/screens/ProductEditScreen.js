@@ -132,7 +132,7 @@ const ProductEditScreen = ({ match, history }) => {
               value={image}
               onChange={e => setImage(e.target.value)}
             />
-            <div>
+            <div className='form__content__upload'>
               <input type='file' onChange={uploadFileHandler} />
               {uploading && <Loader />}
             </div>

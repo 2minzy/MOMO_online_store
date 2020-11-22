@@ -92,7 +92,7 @@ const RegisterScreen = ({ location, history }) => {
         <button className='btn'>REGISTER</button>
       </form>
 
-      <div>
+      <div className='form__content__subtitle'>
         Have an Account?{' '}
         <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
           LOGIN

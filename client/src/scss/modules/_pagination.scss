@@ -1,0 +1,15 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  color: $primary-color;
+
+  &__item {
+    margin-right: 1rem;
+  }
+
+  .active {
+    color: black;
+    font-weight: bolder;
+  }
+}

@@ -61,7 +61,7 @@ const LoginScreen = ({ location, history }) => {
         <button className='btn'>SIGN IN</button>
       </form>
 
-      <div>
+      <div className='form__content__subtitle'>
         New Customer?{' '}
         <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
           REGISTER
