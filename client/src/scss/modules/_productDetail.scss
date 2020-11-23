@@ -79,7 +79,7 @@
   margin-top: 3rem;
 
   &__container {
-    width: 500px;
+    width: 800px;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -89,9 +89,13 @@
       flex-basis: 0;
     }
 
-    &__item,
+    &__item {
+      margin: 1rem 1rem 0 1rem;
+    }
+
     &__item__content {
       margin: 1rem 1rem 0 1rem;
+      flex-grow: 4;
     }
 
     @include atMobile {

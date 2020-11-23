@@ -17,6 +17,10 @@ const ProductsLanding = ({ match }) => {
   const productList = useSelector(state => state.productList);
   const { loading, error, products, page, pages } = productList;
 
+  const onClickHandler = userFilter => {
+    setCategory(userFilter);
+  };
+
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber));
   }, [dispatch, keyword, pageNumber]);
@@ -25,7 +29,25 @@ const ProductsLanding = ({ match }) => {
     <>
       <Meta title='Shop | MOMO' />
       <div className='container'>
-        <div className='page__title'>
+        <div>
+          <ul className='productLanding__filter'>
+            <li className='productLanding__filter__item'>
+              <button onClick={() => onClickHandler('coats')}>
+                COATS & JACKETS
+              </button>
+            </li>
+            <li className='productLanding__filter__item'>
+              <button onClick={() => onClickHandler('tops')}>TOPS</button>
+            </li>
+            <li className='productLanding__filter__item'>
+              <button onClick={() => onClickHandler('dresses')}>DRESSES</button>
+            </li>
+            <li className='productLanding__filter__item'>
+              <button onClick={() => onClickHandler('bottoms')}>BOTTOMS</button>
+            </li>
+          </ul>
+        </div>
+        <div className='productLanding__title'>
           LATEST PRODUCTS
           <br />
           20% OFF ALL TOPS & DRESS

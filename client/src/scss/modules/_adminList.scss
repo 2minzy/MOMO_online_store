@@ -17,11 +17,16 @@
   }
 
   &__edit {
-    background-color: $secondary-color;
+    color: $dark-color;
+    background-color: $white-color;
   }
 
   button {
     width: 36px;
+    height: 36px;
+    text-align: center;
+    padding: 1px;
+    border: 1px solid $dark-color;
   }
 
   @include atMobile {

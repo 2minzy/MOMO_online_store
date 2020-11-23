@@ -1,6 +1,24 @@
-// Products Landing page
+.productLanding__filter {
+  display: flex;
+  justify-content: center;
 
-.page__title {
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__item {
+    margin-right: 1rem;
+  }
+
+  @include atMobile {
+    flex-direction: column;
+  }
+}
+
+.productLanding__title {
   font-size: 1rem;
   margin: 2rem 0;
 

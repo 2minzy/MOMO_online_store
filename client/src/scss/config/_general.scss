@@ -20,7 +20,7 @@ a {
 }
 
 a:hover {
-  color: #666;
+  color: $secondary-color;
 }
 
 ul {
@@ -73,31 +73,6 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-}
-
-/* Text Styles*/
-.text-center {
-  text-align: center;
-}
-
-.text-primary {
-  color: var(--primary-color);
-}
-
-.text-dark {
-  color: var(--dark-color);
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-left {
-  text-align: left;
 }
 
 /* List */

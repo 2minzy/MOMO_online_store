@@ -7,9 +7,8 @@ const Paginate = ({ pages, page, isAdmin = false, keyword = '' }) => {
     pages > 1 && (
       <div className='pagination'>
         {[...Array(pages).keys()].map(x => (
-          <div className='pagination__item'>
+          <div key={x + 1} className='pagination__item'>
             <Link
-              key={x + 1}
               to={
                 !isAdmin
                   ? keyword
