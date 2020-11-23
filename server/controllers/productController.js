@@ -8,7 +8,7 @@ const getProducts = asyncHandler(async (req, res) => {
   const pageSize = 12;
   const page = Number(req.query.pageNumber) || 1;
 
-  const keyword = req.query.keyword
+  const keywordFilter = req.query.keyword
     ? {
         name: {
           // $regex is for insufficient user keyword  e.g. iph = iphone
@@ -18,8 +18,17 @@ const getProducts = asyncHandler(async (req, res) => {
       }
     : {};
 
-  const count = await Product.countDocuments({ ...keyword });
-  const products = await Product.find({ ...keyword })
+  const categoryFilter = req.query.category
+    ? {
+        category: req.query.category,
+      }
+    : {};
+
+  const count = await Product.countDocuments({
+    ...keywordFilter,
+    ...categoryFilter,
+  });
+  const products = await Product.find({ ...keywordFilter, ...categoryFilter })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
 

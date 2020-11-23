@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Product from '../components/Product';
 import Message from '../components/Message';
@@ -8,6 +8,8 @@ import Paginate from '../components/Paginate';
 import { listProducts } from '../actions/productActions';
 
 const ProductsLanding = ({ match }) => {
+  const [category, setCategory] = useState('');
+
   const keyword = match.params.keyword;
 
   const pageNumber = match.params.pageNumber || 1;
@@ -22,8 +24,8 @@ const ProductsLanding = ({ match }) => {
   };
 
   useEffect(() => {
-    dispatch(listProducts(keyword, pageNumber));
-  }, [dispatch, keyword, pageNumber]);
+    dispatch(listProducts(keyword, category, pageNumber));
+  }, [dispatch, keyword, category, pageNumber]);
 
   return (
     <>
@@ -32,18 +34,44 @@ const ProductsLanding = ({ match }) => {
         <div>
           <ul className='productLanding__filter'>
             <li className='productLanding__filter__item'>
-              <button onClick={() => onClickHandler('coats')}>
+              <button
+                onClick={() => onClickHandler('')}
+                className={`${category === '' ? 'active' : ''}`}
+              >
+                ALL
+              </button>
+            </li>
+            <li className='productLanding__filter__item'>
+              <button
+                onClick={() => onClickHandler('coats')}
+                className={`${category === 'coats' ? 'active' : ''}`}
+              >
                 COATS & JACKETS
               </button>
             </li>
             <li className='productLanding__filter__item'>
-              <button onClick={() => onClickHandler('tops')}>TOPS</button>
+              <button
+                onClick={() => onClickHandler('tops')}
+                className={`${category === 'tops' ? 'active' : ''}`}
+              >
+                TOPS
+              </button>
             </li>
             <li className='productLanding__filter__item'>
-              <button onClick={() => onClickHandler('dresses')}>DRESSES</button>
+              <button
+                onClick={() => onClickHandler('dresses')}
+                className={`${category === 'dresses' ? 'active' : ''}`}
+              >
+                DRESSES
+              </button>
             </li>
             <li className='productLanding__filter__item'>
-              <button onClick={() => onClickHandler('bottoms')}>BOTTOMS</button>
+              <button
+                onClick={() => onClickHandler('bottoms')}
+                className={`${category === 'bottoms' ? 'active' : ''}`}
+              >
+                BOTTOMS
+              </button>
             </li>
           </ul>
         </div>

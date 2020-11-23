@@ -1,6 +1,11 @@
 .productLanding__filter {
   display: flex;
   justify-content: center;
+  margin-bottom: 1rem;
+
+  .active {
+    color: $primary-color;
+  }
 
   button {
     background-color: transparent;

@@ -22,13 +22,14 @@ import {
 
 export const listProducts = (
   keyword = '',
+  category = '',
   pageNumber = ''
 ) => async dispatch => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
     const { data } = await axios.get(
-      `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
+      `/api/products?keyword=${keyword}&category=${category}&pageNumber=${pageNumber}`
     );
 
     dispatch({
