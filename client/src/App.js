@@ -25,7 +25,7 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <main className='landing'>
+      <main>
         <Route exact path='/' component={HomeScreen} />
         <Route exact path='/payment' component={PaymentScreen} />
         <Route exact path='/placeorder' component={PlaceOrderScreen} />

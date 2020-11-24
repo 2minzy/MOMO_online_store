@@ -1,10 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { logout } from '../actions/userActions';
 
 const Header = () => {
   const dispatch = useDispatch();
+
+  const location = useLocation();
 
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
@@ -15,7 +17,7 @@ const Header = () => {
   return (
     <div>
       <header>
-        <nav className='nav'>
+        <nav className={location.pathname === '/' ? 'nav nav--dark' : 'nav'}>
           <div className='nav__logo'>
             <Link to='/'>MOMO</Link>
           </div>
