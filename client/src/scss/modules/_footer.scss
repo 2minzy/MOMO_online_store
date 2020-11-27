@@ -1,7 +1,11 @@
 .footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
   background-color: black;
   color: white;
   padding: 2rem 2rem;
   font-size: 0.7rem;
   text-align: right;
+  height: 115px;
 }

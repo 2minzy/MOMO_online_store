@@ -116,7 +116,7 @@ const ProfileScreen = ({ history }) => {
         </form>
       </div>
 
-      <div>
+      <div className='form__table__container'>
         <h2 className='form__title'>My Orders</h2>
         <div className='form__table'>
           {loadingOrders ? (

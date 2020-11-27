@@ -41,7 +41,7 @@ const CartScreen = ({ match, location, history }) => {
       ) : (
         <div>
           {cartItems.map(item => (
-            <div key={item.product} className='conatiner cart__container'>
+            <div key={item.product} className='cart__container'>
               <img src={item.image} alt={item.name} />
               <div className='cart__name'>
                 <Link to={`/shop/product/${item.product}`}>{item.name}</Link>
@@ -72,7 +72,7 @@ const CartScreen = ({ match, location, history }) => {
               </div>
             </div>
           ))}
-          <div className='conatiner cart__description'>
+          <div className='cart__description'>
             <p>
               Order quantity:{' '}
               {cartItems.reduce((acc, item) => acc + item.qty, 0)} Items

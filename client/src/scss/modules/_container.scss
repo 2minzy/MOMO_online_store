@@ -1,8 +1,8 @@
 .container {
   width: 100%;
   max-width: 1500px;
-  min-height: 80vh;
   padding-top: 10rem;
+  padding-bottom: 115px;
   margin: auto;
   text-align: center;
 
@@ -13,4 +13,9 @@
   @include atTablets {
     padding: 5rem 1rem;
   }
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
 }
