@@ -8,6 +8,19 @@
   position: fixed;
   z-index: 2;
 
+  &__toggle-btn {
+    position: absolute;
+    top: 1.2rem;
+    right: 2rem;
+    font-size: 20px;
+    color: $white-color;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: none;
+    cursor: pointer;
+  }
+
   a {
     color: $dark-color;
   }
@@ -70,10 +83,6 @@
       position: relative;
       display: inline-block;
 
-      i {
-        margin-left: 4px;
-      }
-
       .dropdown__profile {
         text-align: center;
         &:hover {
@@ -109,25 +118,6 @@
     }
   }
 
-  @include atMobile {
-    padding: 0.75rem 2rem;
-
-    .nav__logo {
-      font-size: 1.5rem;
-    }
-
-    .nav__items {
-      li {
-        font-size: 0.8rem;
-        padding: 0 0.4rem;
-
-        .dropdown:hover .dropdown__content {
-          max-width: 20px;
-        }
-      }
-    }
-  }
-
   @include atTablets {
     .nav__logo {
       font-size: 2rem;
@@ -142,5 +132,51 @@
   &--dark,
   &--dark a {
     color: white;
+  }
+}
+
+@include atMobile {
+  .nav {
+    padding: 0.75rem 2rem;
+    display: block;
+    background-color: $dark-color;
+    width: 100%;
+    color: $white-color;
+
+    a {
+      color: $white-color;
+    }
+
+    .nav__logo {
+      font-size: 1.5rem;
+      display: block;
+    }
+
+    &__toggle-btn {
+      display: block;
+    }
+
+    .nav__items {
+      margin: auto;
+      display: block;
+      text-align: center;
+      display: none;
+
+      &-open {
+        display: block;
+      }
+
+      li {
+        margin: 1rem 0;
+      }
+
+      .dropdown {
+        position: relative;
+
+        &__content {
+          position: relative;
+        }
+      }
+    }
   }
 }

@@ -31,7 +31,7 @@ const CartScreen = ({ match, location, history }) => {
 
   return (
     <div className='container'>
-      <p className='page__title'>SHOPPING CART ITEMS</p>
+      <h3 className='cart__title'>SHOPPING CART ITEMS</h3>
       {cartItems.length === 0 ? (
         <div className='error'>
           <Message>

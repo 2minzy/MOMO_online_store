@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 4rem;
 
   &__table {
     margin-top: 2rem;
@@ -39,8 +40,12 @@
     }
 
     button {
+      width: 24px;
+      height: 24px;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

@@ -59,49 +59,47 @@ const ProductListScreen = ({ history, match }) => {
             <Message>{error}</Message>
           </div>
         ) : (
-          <div className='admin__list__table'>
-            <table>
-              <thead>
-                <tr>
-                  <th>NO.</th>
-                  <th>NAME</th>
-                  <th>PRICE</th>
-                  <th>CATEGORY</th>
-                  <th>BRAND</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products &&
-                  products.map((product, index) => (
-                    <tr key={product._id}>
-                      <td>{index + 1}</td>
-                      <td>{product.name}</td>
-                      <td>${product.price}</td>
-                      <td>{product.category}</td>
-                      <td>{product.brand}</td>
+          <table className='admin__list__table'>
+            <thead>
+              <tr>
+                <th>NO.</th>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>CATEGORY</th>
+                <th>BRAND</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products &&
+                products.map((product, index) => (
+                  <tr key={product._id}>
+                    <td>{index + 1}</td>
+                    <td>{product.name}</td>
+                    <td>${product.price}</td>
+                    <td>{product.category}</td>
+                    <td>{product.brand}</td>
 
-                      <td className='admin__list__btn'>
-                        <Link to={`/admin/product/${product._id}/edit`}>
-                          <button className='btn admin__list__edit'>
-                            <i className='fas fa-edit'></i>
-                          </button>
-                        </Link>
-                        <button
-                          className='btn'
-                          onClick={() => deleteHandler(product._id)}
-                        >
-                          <i className='fas fa-trash'></i>
+                    <td className='admin__list__btn'>
+                      <Link to={`/admin/product/${product._id}/edit`}>
+                        <button className='btn admin__list__edit'>
+                          <i className='fas fa-edit'></i>
                         </button>
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-            <div>
-              <Paginate pages={pages} page={page} isAdmin={true} />
-            </div>
-          </div>
+                      </Link>
+                      <button
+                        className='btn'
+                        onClick={() => deleteHandler(product._id)}
+                      >
+                        <i className='fas fa-trash'></i>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
         )}
+      </div>
+      <div>
+        <Paginate pages={pages} page={page} isAdmin={true} />
       </div>
     </div>
   );

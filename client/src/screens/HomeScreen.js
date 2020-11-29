@@ -49,7 +49,7 @@ const HomeScreen = () => {
       triggers.map(trigger => trigger.kill());
       snap.kill();
     };
-  }, [refSlide1, refSlide2, refSlide3, refSlide4]);
+  }, []);
 
   useEffect(() => {
     const texts = [revealRef1, revealRef2, revealRef3].map(ref => ref.current);

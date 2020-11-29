@@ -1,5 +1,4 @@
 // Media queries
-
 @mixin atMobile() {
   @media only screen and (max-width: $screen-sm-max) {
     @content;
