@@ -86,6 +86,12 @@
       margin-top: 1rem;
       border: 2px solid $white-color;
     }
+
+    @include atMobile {
+      &__title {
+        font-size: 1.6rem;
+      }
+    }
   }
 
   input {
@@ -98,27 +104,31 @@
     height: 30px;
   }
 
-  &__icon {
-    margin-top: 1rem;
+  &__icon__container {
+    margin: 1rem 0;
 
     a {
       cursor: pointer;
       outline: none;
       border: none;
+      font-size: 1.6rem;
+      margin: 2rem 1rem;
     }
 
     a:hover {
       color: $secondary-color;
-    }
-
-    i {
-      font-size: 1.6rem;
-      margin: 2rem 1rem;
     }
   }
 
   .newsletter--btn {
     margin-top: 1rem;
     width: 200px;
+    background-color: transparent;
+    color: $white-color;
+    padding: 10px 0;
+    margin-top: 1rem;
+    border: 2px solid $white-color;
+    cursor: pointer;
+    outline: none;
   }
 }

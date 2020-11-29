@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { logout } from '../actions/userActions';
+import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ const Header = () => {
           <ul className='nav__items'>
             <li>
               <Link to='/shop/search'>
-                <i className='fas fa-search'></i>
+                <FontAwesomeIcon icon={faSearch} />
               </Link>
             </li>
             <li>
@@ -62,7 +64,7 @@ const Header = () => {
               <li className='dropdown'>
                 <div className='dropdown__profile'>
                   ADMIN
-                  <i className='fa fa-caret-down'></i>
+                  <FontAwesomeIcon icon={faCaretDown} />
                 </div>
                 <div className='dropdown__content'>
                   <div className='dropdown__content__item'>
