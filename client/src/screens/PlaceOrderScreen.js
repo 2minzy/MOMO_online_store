@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Message from '../components/Message';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { createOrder } from '../actions/orderActions';
+import Meta from '../components/Meta';
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <div className='container'>
+      <Meta title='Place Order | MOMO' />
       <CheckoutSteps step1 step2 step3 step4 />
       <div className='order'>
         <div>

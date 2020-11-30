@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 import FormContainer from '../components/FormContainer';
 import { getUserDetails, updateUser } from '../actions/userActions';
 import { USER_UPDATE_RESET } from '../constants/userConstants';
+import Meta from '../components/Meta';
 
 const UserEditScreen = ({ match, history }) => {
   const userId = match.params.id;
@@ -48,6 +49,7 @@ const UserEditScreen = ({ match, history }) => {
 
   return (
     <FormContainer>
+      <Meta title={`Edit User ${user.name} | ADMIN PAGE`} />
       <h3 className='admin__list__title'>EDIT USER</h3>
       {loadingUpdate && <Loader />}
       {errorUpdate && (

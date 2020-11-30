@@ -26,6 +26,13 @@
     &__subtitle {
       margin-top: 1rem;
     }
+
+    &__comment {
+      textarea {
+        width: 480px;
+        height: 80px;
+      }
+    }
   }
 
   &__checkout__nav {
@@ -61,6 +68,14 @@
   @include atMobile {
     input {
       width: 280px;
+    }
+
+    &__content {
+      &__comment {
+        textarea {
+          width: 280px;
+        }
+      }
     }
 
     &__title {

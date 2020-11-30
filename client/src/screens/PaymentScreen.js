@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { savePaymentMethod } from '../actions/cartActions';
+import Meta from '../components/Meta';
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector(state => state.cart);
@@ -23,6 +24,7 @@ const PaymentScreen = ({ history }) => {
 
   return (
     <div className='container'>
+      <Meta title='Payment Info | MOMO' />
       <CheckoutSteps step1 step2 step3 />
       <h3 className='form__title'>PAYMENT METHOD</h3>
       <form onSubmit={submitHandler}>

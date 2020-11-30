@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../actions/cartActions';
+import Meta from '../components/Meta';
 
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;
@@ -31,11 +32,12 @@ const CartScreen = ({ match, location, history }) => {
 
   return (
     <div className='container'>
+      <Meta title='Shopping Cart | MOMO' />
       <h3 className='cart__title'>SHOPPING CART ITEMS</h3>
       {cartItems.length === 0 ? (
         <div className='error'>
           <Message>
-            Your cart is empty <Link to='/'>Go Back</Link>
+            Your cart is empty <Link to='/shop'>Click here to go back</Link>
           </Message>
         </div>
       ) : (

@@ -165,11 +165,9 @@ const ProductDetail = ({ history, match }) => {
                       </select>
                     </div>
 
-                    <div>
+                    <div className='form__content__comment'>
                       <div>Comment</div>
                       <textarea
-                        cols='50'
-                        rows='5'
                         onChange={e => setComment(e.target.value)}
                       ></textarea>
                     </div>

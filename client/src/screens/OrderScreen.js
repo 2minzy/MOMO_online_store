@@ -14,6 +14,7 @@ import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
 } from '../constants/orderConstants';
+import Meta from '../components/Meta';
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id;
@@ -89,6 +90,7 @@ const OrderScreen = ({ match, history }) => {
     </div>
   ) : (
     <div className='container'>
+      <Meta title={`Payment Order | ${order._id}`} />
       <h3>Order {order._id}</h3>
       <div className='order'>
         <div>

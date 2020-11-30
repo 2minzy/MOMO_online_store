@@ -6,6 +6,7 @@ import Loader from '../components/Loader';
 import FormContainer from '../components/FormContainer';
 import { createProduct } from '../actions/productActions';
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
+import Meta from '../components/Meta';
 
 const ProductCreateScreen = ({ history }) => {
   const [name, setName] = useState('');
@@ -71,6 +72,7 @@ const ProductCreateScreen = ({ history }) => {
 
   return (
     <FormContainer>
+      <Meta title='Create Product | ADMIN PAGE' />
       <h3 className='user__list__title'>CREATE PRODUCT</h3>
       {loadingCreate && <Loader />}
       {errorCreate && (

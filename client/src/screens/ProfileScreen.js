@@ -6,13 +6,15 @@ import Loader from '../components/Loader';
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
 import { listMyOrders } from '../actions/orderActions';
+import Meta from '../components/Meta';
 
 const ProfileScreen = ({ history }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [message, setMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -47,32 +49,32 @@ const ProfileScreen = ({ history }) => {
   const submitHandler = e => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setMessage('Passwords do not match');
+      setErrorMessage('Passwords do not match');
     } else {
       dispatch(updateUserProfile({ id: user._id, name, email, password }));
+      setErrorMessage('');
+      setSuccessMessage('Profile updated successfully!');
     }
   };
 
   return (
     <div className='container form'>
-      <div>
-        <h2>User Profile</h2>
-        {message && (
-          <div className='error'>
-            <Message>{message}</Message>
-          </div>
-        )}
-        {error && (
-          <div className='error'>
-            <Message>{error}</Message>
-          </div>
-        )}
-        {success && (
-          <div className='success'>
-            <Message>Profile Updated</Message>
-          </div>
-        )}
-        {loading && <Loader />}
+      <Meta title={`${user.name}'s Profile | MOMO`} />
+      <h2>User Profile</h2>
+      {errorMessage && !success ? (
+        <div className='error'>
+          <Message>{errorMessage}</Message>
+        </div>
+      ) : (
+        <div className='success' style={{ color: 'green' }}>
+          <Message>{successMessage}</Message>
+        </div>
+      )}
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message className='error'>{error}</Message>
+      ) : (
         <form onSubmit={submitHandler}>
           <div className='form__content'>
             <div>Name</div>
@@ -114,7 +116,7 @@ const ProfileScreen = ({ history }) => {
           </div>
           <button className='btn'>UPDATE</button>
         </form>
-      </div>
+      )}
 
       <div className='form__table__container'>
         <h2 className='form__title'>My Orders</h2>

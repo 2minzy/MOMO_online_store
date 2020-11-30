@@ -60,7 +60,7 @@
   }
 
   @include atTablets {
-    padding-top: 150px;
+    padding-top: 100px;
     img {
       width: 300px;
     }
@@ -79,7 +79,7 @@
   margin-top: 3rem;
 
   &__container {
-    width: 800px;
+    max-width: 800px;
     margin: auto;
     display: flex;
     justify-content: center;

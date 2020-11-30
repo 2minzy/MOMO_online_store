@@ -6,6 +6,7 @@ import Loader from '../components/Loader';
 import FormContainer from '../components/FormContainer';
 import { listProductDetails, updateProduct } from '../actions/productActions';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
+import Meta from '../components/Meta';
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id;
@@ -89,6 +90,7 @@ const ProductEditScreen = ({ match, history }) => {
 
   return (
     <FormContainer>
+      <Meta title='Edit Product | ADMIN PAGE' />
       <h3 className='user__list__title'>EDIT PRODUCT</h3>
       {loadingUpdate && <Loader />}
       {errorUpdate && (

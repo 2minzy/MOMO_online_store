@@ -1,16 +1,16 @@
 .container {
   width: 100%;
   max-width: 1500px;
-  padding: 10rem 0 2rem 0;
+  padding: 10rem 0;
   margin: auto;
   text-align: center;
 
   @include atMobile {
-    padding: 6rem 1rem 2rem 1rem;
+    padding: 6rem 1rem;
   }
 
   @include atTablets {
-    padding: 4rem 1rem;
+    padding: 8rem 1rem;
   }
 }
 

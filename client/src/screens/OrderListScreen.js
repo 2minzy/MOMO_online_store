@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { listOrders } from '../actions/orderActions';
+import Meta from '../components/Meta';
 
 const OrderListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const OrderListScreen = ({ history }) => {
 
   return (
     <div className='container'>
+      <Meta title='Orders List | ADMIN PAGE' />
       <h3 className='admin__list__title'>ORDERS</h3>
       <div className='admin__list'>
         {loading ? (

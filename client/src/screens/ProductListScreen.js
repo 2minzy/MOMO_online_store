@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-
 import Paginate from '../components/Paginate';
-
 import { listProducts, deleteProduct } from '../actions/productActions';
+import Meta from '../components/Meta';
 
 const ProductListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -42,6 +41,7 @@ const ProductListScreen = ({ history, match }) => {
 
   return (
     <div className='container'>
+      <Meta title='Products List | ADMIN PAGE' />
       <h3 className='admin__list__title'>PRODUCTS</h3>
 
       <Link to='/admin/product/create' className='btn'>
