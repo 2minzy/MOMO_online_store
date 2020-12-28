@@ -49,6 +49,16 @@ const App = () => {
           />
           <Route
             exact
+            path='/shop/category/:category'
+            component={ProductsLanding}
+          />
+          <Route
+            exact
+            path='/shop/category/:category/page/:pageNumber'
+            component={ProductsLanding}
+          />
+          <Route
+            exact
             path='/shop/page/:pageNumber'
             component={ProductsLanding}
           />

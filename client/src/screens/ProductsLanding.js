@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Product from '../components/Product';
 import Message from '../components/Message';
@@ -6,9 +6,10 @@ import Loader from '../components/Loader';
 import Meta from '../components/Meta';
 import Paginate from '../components/Paginate';
 import { listProducts } from '../actions/productActions';
+import { NavLink } from 'react-router-dom';
 
 const ProductsLanding = ({ match }) => {
-  const [category, setCategory] = useState('');
+  const category = match.params.category;
 
   const keyword = match.params.keyword;
 
@@ -18,10 +19,6 @@ const ProductsLanding = ({ match }) => {
 
   const productList = useSelector(state => state.productList);
   const { loading, error, products, page, pages } = productList;
-
-  const onClickHandler = userFilter => {
-    setCategory(userFilter);
-  };
 
   useEffect(() => {
     dispatch(listProducts(keyword, category, pageNumber));
@@ -34,44 +31,29 @@ const ProductsLanding = ({ match }) => {
         <div>
           <ul className='productLanding__filter'>
             <li className='productLanding__filter__item'>
-              <button
-                onClick={() => onClickHandler('')}
-                className={`${category === '' ? 'active' : ''}`}
-              >
+              <NavLink exact to='/shop' activeClassName='active'>
                 ALL
-              </button>
+              </NavLink>
             </li>
             <li className='productLanding__filter__item'>
-              <button
-                onClick={() => onClickHandler('coats')}
-                className={`${category === 'coats' ? 'active' : ''}`}
-              >
+              <NavLink to='/shop/category/coats' activeClassName='active'>
                 COATS & JACKETS
-              </button>
+              </NavLink>
             </li>
             <li className='productLanding__filter__item'>
-              <button
-                onClick={() => onClickHandler('tops')}
-                className={`${category === 'tops' ? 'active' : ''}`}
-              >
+              <NavLink to='/shop/category/tops' activeClassName='active'>
                 TOPS
-              </button>
+              </NavLink>
             </li>
             <li className='productLanding__filter__item'>
-              <button
-                onClick={() => onClickHandler('dresses')}
-                className={`${category === 'dresses' ? 'active' : ''}`}
-              >
+              <NavLink to='/shop/category/dresses' activeClassName='active'>
                 DRESSES
-              </button>
+              </NavLink>
             </li>
             <li className='productLanding__filter__item'>
-              <button
-                onClick={() => onClickHandler('bottoms')}
-                className={`${category === 'bottoms' ? 'active' : ''}`}
-              >
+              <NavLink to='/shop/category/bottoms' activeClassName='active'>
                 BOTTOMS
-              </button>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -93,7 +75,12 @@ const ProductsLanding = ({ match }) => {
             ))}
           </div>
         )}
-        <Paginate pages={pages} page={page} keyword={keyword ? keyword : ''} />
+        <Paginate
+          pages={pages}
+          page={page}
+          keyword={keyword ? keyword : ''}
+          category={category ? category : ''}
+        />
       </div>
     </>
   );

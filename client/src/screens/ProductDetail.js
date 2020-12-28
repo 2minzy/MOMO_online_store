@@ -95,11 +95,13 @@ const ProductDetail = ({ history, match }) => {
                       value={qty}
                       onChange={e => setQty(e.target.value)}
                     >
-                      {[...Array(product.countInStock).keys()].map(x => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
+                      {[...Array(product.countInStock).keys()].map(
+                        (x, index) => (
+                          <option key={index} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        )
+                      )}
                     </select>
                   </div>
                 )}
@@ -122,8 +124,8 @@ const ProductDetail = ({ history, match }) => {
                 </div>
               )}
               <div>
-                {product.reviews.map(review => (
-                  <div className='productDetail__review__container'>
+                {product.reviews.map((review, index) => (
+                  <div className='productDetail__review__container' key={index}>
                     <div className='productDetail__review__container__item'>
                       <strong>{review.name}</strong>
                     </div>
