@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className='footer'>
-      Copyright &copy; MOMO
+      Copyright &copy; {new Date().getFullYear()} MOMO
       <br />
       All rights reserved.
       <br />
