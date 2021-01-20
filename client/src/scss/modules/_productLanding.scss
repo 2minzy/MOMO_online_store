@@ -57,6 +57,7 @@
 
   @include atMobile {
     grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 2rem;
     .product {
       padding: 0.2rem;
       font-size: 0.4rem;
